@@ -110,14 +110,26 @@
 
         }
 
+        .botao-clear:hover{
+            cursor: pointer;
+            background-color: #5e0808;
+
+        }
+
         .botao-add{
             background-color: #0E5CA8;
             border: none;
             border-radius: 20px;
             color: #E9F1F6;
             padding: 10px 35px;
+
         }
-        
+
+        .botao-add:hover{
+            cursor: pointer;
+            background-color: #08315a;
+        }
+    
 
     }
 
