@@ -255,7 +255,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s ease-in-out;
         }  
+
+        .edit:hover{
+            background-color: blue;
+            cursor: pointer;
+        }
 
         .delete{
             width: 100%;
@@ -266,6 +272,80 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s ease-in-out;
         }
 
+        .delete:hover{
+            background-color: red;
+            cursor: pointer;
+        }
+
+    }
+
+    .container-extender{
+        padding: 10px;
+        border-radius: 2px  ;
+    }
+
+    dialog {
+        border: none;
+        border-radius: 10px;
+        padding: 24px;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        font-family: sans-serif;
+    }
+
+    /* Fundo escuro atrás do pop-up */
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(2px);
+    }
+
+    .botoes-popup {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    dialog {
+        opacity: 0;
+        transform: scale(0.9) translateY(-15px);
+        transition:
+            opacity 0.25s ease-out,
+            transform 0.25s ease-out,
+            overlay 0.25s ease-out allow-discrete,
+            display 0.25s ease-out allow-discrete;
+    }
+
+    dialog[open] {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    @starting-style {
+        dialog[open] {
+            opacity: 0;
+            transform: scale(0.9) translateY(-15px);
+        }
+    }
+
+    dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0);
+        transition:
+            background-color 0.25s ease-out,
+            overlay 0.25s ease-out allow-discrete,
+            display 0.25s ease-out allow-discrete;
+    }
+
+    dialog[open]::backdrop {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    @starting-style {
+        dialog[open]::backdrop {
+            background-color: rgba(0, 0, 0, 0);
+        }
     }
