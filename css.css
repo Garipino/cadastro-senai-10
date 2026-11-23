@@ -287,6 +287,10 @@
         border-radius: 2px  ;
     }
 
+    .estender{
+        padding: 5px;
+    }
+
     dialog {
         border: none;
         border-radius: 10px;
@@ -297,7 +301,6 @@
         font-family: sans-serif;
     }
 
-    /* Fundo escuro atrás do pop-up */
     dialog::backdrop {
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(2px);

@@ -43,7 +43,7 @@ function renderizarLista() {
                     <td><div class="gray">${user.complemento}</div></td>
                     <td><div class="gray">${user.cep}</div></td>
                     <td>
-                        <button type="button" class="edit" title="Editar">
+                        <button type="button" class="edit" title="Editar" onclick="BtnEdit(${index})">
                             <i class="fa-solid fa-pen"></i>
                         </button>
                     </td>
@@ -56,6 +56,8 @@ function renderizarLista() {
             </tbody>
         </table>
         `;
+
+        
     });
 }
 
@@ -94,6 +96,8 @@ function Adicionar() {
     listaUsuarios.push(user);
 
     localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+
+
     renderizarLista();
 }
 
@@ -128,8 +132,9 @@ function excluir(index) {
 
 window.addEventListener("DOMContentLoaded", function () {
     renderizarLista();
-
-    const btnConfirmar = document.getElementById("btnConfirmar");
+    
+});
+const btnConfirmar = document.getElementById("btnConfirmar");
     if (btnConfirmar) {
         btnConfirmar.addEventListener("click", function () {
             if (indexParaExcluir !== null) {
@@ -139,18 +144,110 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-});
 
+let indexParaEditar = null;
+
+function BtnEdit(index) {
+    let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const user = listaUsuarios[index];
+
+
+    document.getElementById("nome").value = user.nome;
+    document.getElementById("data-nasc").value = user.data;
+    document.getElementById("email").value = user.email;
+    document.getElementById("cep").value = user.cep;
+    document.getElementById("rua").value = user.rua;
+    document.getElementById("bairro").value = user.bairro;
+    document.getElementById("uf").value = user.uf;
+    document.getElementById("cidade").value = user.cidade;
+    document.getElementById("numero-casa").value = user.numero;
+    document.getElementById("complemento").value = user.complemento;
+    document.getElementById("turma-setor").value = user.turma;
+    document.getElementById("unidade-senai").value = user.unidade;
+    document.getElementById("vinculo").value = user.vinculo;
+
+    
+    indexParaEditar = index;
+    document.querySelector(".botao-add").textContent = "SALVAR";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function Adicionar() {
+    let cep = document.getElementById('cep').value.trim();
+    let name = document.getElementById("nome").value.trim();
+    let date = document.getElementById("data-nasc").value;
+    let email = document.getElementById("email").value.trim();
+    let num = document.getElementById("numero-casa").value.trim();
+    let complemento = document.getElementById("complemento").value.trim();
+    let turma = document.getElementById("turma-setor").value.trim();
+    let unidadesenai = document.getElementById("unidade-senai").value.trim();
+    let vinculo = document.getElementById("vinculo").value.trim();
+    let rua = document.getElementById("rua").value.trim();
+    let bairro = document.getElementById("bairro").value.trim();
+    let uf = document.getElementById("uf").value.trim();
+    let cidade = document.getElementById("cidade").value.trim();
+
+    const user = {
+        nome: name,
+        data: date,
+        email: email,
+        cep: cep,
+        rua: rua,
+        bairro: bairro,
+        uf: uf,
+        numero: num,
+        complemento: complemento,
+        turma: turma,
+        unidade: unidadesenai,
+        vinculo: vinculo,
+        cidade: cidade
+    };
+
+    let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    if (indexParaEditar !== null) {
+        listaUsuarios[indexParaEditar] = user;
+        indexParaEditar = null;
+        document.querySelector(".botao-add").textContent = "ADICIONAR";
+    } else {
+        
+        listaUsuarios.push(user);
+    }
+
+    localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+    renderizarLista();
+}
+
+function Limpar() {
+    document.getElementById("nome").value = "";
+    document.getElementById("data-nasc").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("cep").value = "";
+    document.getElementById("rua").value = "";
+    document.getElementById("bairro").value = "";
+    document.getElementById("uf").value = "";
+    document.getElementById("cidade").value = "";
+    document.getElementById("numero-casa").value = "";
+    document.getElementById("complemento").value = "";
+    document.getElementById("turma-setor").value = "";
+    document.getElementById("unidade-senai").value = "";
+    document.getElementById("vinculo").value = "";
+
+}
 
 function extender(){
     console.log(extender);
     var extender1 = document.getElementById("extender1");
+    let estender = document.getElementById("estender");
+
+    
     if(extender1.hidden == false){
         extender1.hidden = true
+        estender.innerHTML = `<i class="fa-solid fa-angle-right"></i>`
     } else{
         extender1.hidden = false
+        estender.innerHTML =  `<i class="fa-solid fa-angle-down"></i>`
     }
-    
-
 }
 
