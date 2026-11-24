@@ -33,7 +33,7 @@
 
             <div class="container-form">
                 <div class="container-colum">
-                    <div class="coluna-1">
+                    <div id = "coluna1" class="coluna-1">
                         <input class="input-class" type="text" id="nome" placeholder="Nome">
                         <input class="input-class" type="date" id="data-nasc" placeholder="dd/mm/aaaa">
                         <input class="input-class" type="text" id="email" placeholder="Email">
@@ -49,7 +49,7 @@
                         <input class="input-class" type="text" id="bairro" placeholder="Bairro">
                         <input class="input-class" type="text" id="uf" placeholder="UF">
                         <input class="input-class" type="text" id="cidade" placeholder="Cidade">
-                        <input class="input-class" type="number" id="numero-casa" placeholder="N° da Casa">
+                        <input class="input-class" type="text" id="numero-casa" placeholder="N° da Casa">
                         
                         
                     </div>
@@ -85,10 +85,41 @@
             <p>Tem certeza que deseja continuar?</p>
         
             <div class="botoes-popup">
-                <button type="button" id="btnConfirmar">Confirmar</button>
+                <button id="btnConfirmar">Confirmar</button>
+                <button id="btnCancelar" onclick="cancelar()">cancelar</button>
             </div>
+            
         </dialog>
 
+        <dialog id="popupedit">
+            
+            <div class="container-edit">
+                <h3>EDITAR</h3>
+                <input class="input-edit" id="name" type="text" placeholder="Nome">
+                <input class="input-edit" id="cpf" type="text" placeholder="CPF">
+                <input class="input-edit" id="data-edit" type="date">
+                <input class="input-edit" id="email-edit" type="text" placeholder="Email">
+                <input class="input-edit" id="cep-edit" type="text" placeholder="CEP">
+                <input class="input-edit" id="rua-edit" type="text" placeholder="Rua">
+                <input class="input-edit" id="bairro-edit" type="text" placeholder="Bairro">
+                <input class="input-edit" id="UF-edit" type="text" placeholder="UF">
+                <input class="input-edit" id="cidade-edit" type="text" placeholder="Cidade">
+                <input class="input-edit" id="Num-casa" type="text" placeholder="N° da Casa">
+                <input class="input-edit" id="complemento-edit" type="text" placeholder="Complemento">
+                <input class="input-edit" id="turma-setor-edit" type="text" placeholder="Turma/Setor">
+                <input class="input-edit" id="unidade-edit" type="text" placeholder="Unidade Senai">
+                <select id="vinculo-edit" class="select-class">
+                    <option value="" disabled selected hidden>Vínculo com o Senai</option>
+                    <option value="instrutor">Instrutor</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="outro">Outro</option>
+                </select>
+                <button class="confirmar" id="ConfirmarEdit" onclick="ConfirmarEdit()">Confirmar</button>
+                <button class="cancelar" id="CancelarEdit" onclick="cancelarEdit()">cancelar</button>
+            </div>
+
+        </dialog>
+        <!---->
         <div class="container-form">
             <button id="estender" onclick="extender()">
                 <i class="fa-solid fa-angle-down"></i>
