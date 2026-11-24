@@ -67,7 +67,7 @@
                 gap: 20px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: center ;
 
             }
 
@@ -123,6 +123,10 @@
             color: #E9F1F6;
             padding: 10px 35px;
             
+        }
+
+        #erro{
+            font-size: 11px;
         }
 
         .botao-add:hover{
@@ -351,4 +355,113 @@
         dialog[open]::backdrop {
             background-color: rgba(0, 0, 0, 0);
         }
+    }
+
+    dialog#popupdelete,
+
+    dialog#popupedit {
+        border: none;
+        border-top: 4px solid #004b8d; /* Azul SENAI */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: auto;
+    }
+
+    /* Popup de confirmação de exclusão */
+    dialog#popupdelete {
+        width: 90%;
+        max-width: 360px;
+        text-align: center;
+    }
+
+    dialog#popupdelete h3 {
+        margin: 0 0 8px;
+        color: #004b8d;
+        font-size: 1.2rem;
+    }
+
+    dialog#popupdelete p {
+        margin: 0 0 20px;
+        color: #444;
+        font-size: 0.95rem;
+    }
+
+    .botoes-popup {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Popup de edição */
+    dialog#popupedit {
+        width: 90%;
+        max-width: 460px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .container-edit {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container-edit h3 {
+        margin: 0 0 6px;
+        color: #004b8d;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .input-edit,
+    dialog#popupedit .select-class {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+    }
+
+    .input-edit:focus,
+    dialog#popupedit .select-class:focus {
+        outline: none;
+        border-color: #004b8d;
+    }
+
+    /* Botões dos popups */
+    #btnConfirmar,
+    .confirmar {
+        background-color: #004b8d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 9px 16px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #btnConfirmar:hover,
+    .confirmar:hover {
+        background-color: #003566;
+    }
+
+    #btnCancelar,
+    .cancelar {
+        background-color: #e5e7eb;
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        padding: 9px 16px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #btnCancelar:hover,
+    .cancelar:hover {
+        background-color: #d1d5db;
     }
