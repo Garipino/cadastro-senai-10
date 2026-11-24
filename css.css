@@ -889,6 +889,16 @@ dialog#popupedit .select-class:focus {
     background-color: #d1d5db;
 }
 
+.bttn{
+    border-radius: 20px;
+    border-color: none;
+    border: none;
+    padding: 10px 20px;
+    background-color: #eceaea;
+    width: 300px;
+}
+
+
 @media (max-width: 1024px) {
     #aba-cadastro .container-colum {
         padding: 20px;
@@ -1009,3 +1019,4 @@ dialog#popupedit .select-class:focus {
         width: 100%;
     }
 }
+

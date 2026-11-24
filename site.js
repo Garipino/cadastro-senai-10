@@ -42,6 +42,7 @@
                         <td><div class="gray">${user.numero}</div></td>
                         <td><div class="gray">${user.complemento}</div></td>
                         <td><div class="gray">${user.cep}</div></td>
+                        <td><div class="gray">${user.cpf}</div></td>
                         <td>
                             <button type="button" class="edit" title="Editar" onclick="BtnEdit(${index})">
                                 <i class="fa-solid fa-pen"></i>
@@ -75,10 +76,10 @@
         let bairro = document.getElementById("bairro").value.trim();
         let uf = document.getElementById("uf").value.trim();
         let cidade = document.getElementById("cidade").value.trim();
-
+        let cpf = document.getElementById("cpf").value.trim();
         let divAdd = document.getElementById("coluna1");
 
-        if (cep == "" || name == "" || date == "" || email == "" || num == "" || turma == "" || unidadesenai == "" || vinculo == "" || rua == "" || bairro == "" || uf == "" || cidade == "") {
+        if (cpf == "" || cep == "" || name == "" || date == "" || email == "" || num == "" || turma == "" || unidadesenai == "" || vinculo == "" || rua == "" || bairro == "" || uf == "" || cidade == "") {
             // Só adiciona a mensagem se ela ainda não estiver na tela
             if (!document.getElementById("erro")) {
                 divAdd.insertAdjacentHTML("beforeend", `<p id="erro" style="color: red">Preencha todos os campos obrigatórios.</p>`);
@@ -100,7 +101,8 @@
                 turma: turma,
                 unidade: unidadesenai,
                 vinculo: vinculo,
-                cidade: cidade
+                cidade: cidade,
+                cpf: cpf
             };
 
             let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
@@ -195,7 +197,8 @@
         document.getElementById("complemento-edit").value = user.complemento;
         document.getElementById("turma-setor-edit").value = user.turma;
         document.getElementById("unidade-edit").value = user.unidade;
-        document.getElementById("vinculo-edit").value = user.vinculo
+        document.getElementById("vinculo-edit").value = user.vinculo;
+        document.getElementById("cpf-edit").value = user.cpf;
         indexParaEditar = index;
         
 
@@ -215,7 +218,7 @@
         let turma = document.getElementById("turma-setor-edit").value.trim();
         let unidade = document.getElementById("unidade-edit").value.trim();
         let vinculo = document.getElementById("vinculo-edit").value.trim();
-
+        let cpf = document.getElementById("cpf-edit").value.trim();
         const user = {
             nome: nome,
             data: data,
@@ -229,7 +232,8 @@
             turma: turma,
             unidade: unidade,
             vinculo: vinculo,
-            cidade: cidade
+            cidade: cidade,
+            cpf: cpf
         };
 
         let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
