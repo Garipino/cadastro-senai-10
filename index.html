@@ -6,6 +6,7 @@
     <title>CADASTRO</title>
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="site.js" defer></script>
     
 </head>
 <body>
@@ -37,11 +38,7 @@
                         <input class="input-class" type="text" id="nome" placeholder="Nome">
                         <input class="input-class" type="date" id="data-nasc" placeholder="dd/mm/aaaa">
                         <input class="input-class" type="text" id="email" placeholder="Email">
-                        <input  onchange="buscarCep()" class="input-class" type="text" id="cep" placeholder="CEP">
-                        <div class="botao-add-div">
-                            <!-- oncliclick aqui-->
-                            <button class="botao-add" onclick="Adicionar()">ADICIONAR</button>
-                        </div>
+                        <input  onchange="buscarCep()" class="input-class" type="text" id="cep" placeholder="CEP">   
                     </div>
 
                     <div class="coluna-2">
@@ -62,16 +59,25 @@
                             <option value="" disabled selected hidden>Vínculo com o Senai</option>
                             <option value="instrutor">Instrutor</option>
                             <option value="aluno">Aluno</option>
-                            <option calue="outro">Outro</option>
+                            <option value="outro">Outro</option>
                         </select>
+                        
+
+                    </div>
+
+                </div>
+                
+                <div class="row-1">
+                        <div class="botao-add-div">
+                            <!-- oncliclick aqui-->
+                            <button class="botao-add" onclick="Adicionar()">ADICIONAR</button>
+                        </div>
                         <div class="botao-clear-div">
                             <!-- onclick aqui tambem-->
                             <button onclick="Limpar()" class="botao-clear">LIMPAR</button>
                         </div>
 
                     </div>
-
-                </div>
 
             </div>
         </section>
@@ -131,6 +137,7 @@
             </div>
         </div>
     </section>
+    </main>
 
 
 </body>
